@@ -1,0 +1,28 @@
+FROM docker.io/saladtechnologies/nemo:0.0.1-parakeet-tdt-1.1b
+# BASE
+
+COPY requirements_parakeet.txt ./requirements.txt
+RUN pip install -r requirements.txt 
+
+RUN pip install jupyterlab
+RUN pip install ipywidgets
+
+RUN pip install pytube
+RUN pip install speedtest-cli
+RUN pip install pythonping
+RUN pip install boto3
+
+#COPY app/api_parakeet.py .
+COPY app/api_parakeet.py .
+COPY app/network.py .
+COPY app/model_parakeet.py .
+COPY app/__version__.py .
+COPY app/voice_for_warm_up.mp3 .
+
+COPY bench/benchmark_1m.py .
+
+# Single-node test
+#CMD bash -c "jupyter lab --no-browser --port=8008  --ip=* --allow-root  --NotebookApp.token=''"
+
+# Normal deployment 
+CMD bash -c "python api_parakeet.py & python benchmark_1m.py"

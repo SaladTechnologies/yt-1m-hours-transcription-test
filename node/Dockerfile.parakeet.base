@@ -1,0 +1,23 @@
+FROM pytorch/pytorch:2.1.2-cuda12.1-cudnn8-runtime
+
+ENV TZ=Etc/UTC \
+  DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y git 
+RUN pip install --upgrade pip
+
+RUN apt-get install -y libsndfile1 ffmpeg 
+RUN apt-get install -y build-essential
+
+RUN pip install Cython
+RUN pip install nemo_toolkit['all']
+
+RUN apt-get install -y wget
+
+WORKDIR /app
+
+RUN mkdir -p /app/data
+RUN mkdir -p /app/audio
+
+COPY app/data/model.nemo ./data
+
+#################################### BASE

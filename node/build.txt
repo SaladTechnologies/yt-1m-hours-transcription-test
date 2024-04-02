@@ -1,0 +1,15 @@
+
+
+docker image build -t docker.io/saladtechnologies/nemo:yt1m-test -f Dockerfile.parakeet.yt1m .
+
+
+docker run --rm --gpus all \
+--env BENCHMARK_ID=$BENCHMARK_ID --env REPORTING_API_URL=$REPORTING_API_URL \
+--env REPORTING_AUTH_HEADER=$REPORTING_AUTH_HEADER --env REPORTING_API_KEY=$REPORTING_API_KEY \
+--env CLOUDFLARE_ID=$CLOUDFLARE_ID --env CLOUDFLARE_KEY=$CLOUDFLARE_KEY --env CLOUDFLARE_URL=$CLOUDFLARE_URL \
+--env AWS_ID=$AWS_ID --env AWS_KEY=$AWS_KEY --env QUEUE_URL=$QUEUE_URL \
+docker.io/saladtechnologies/nemo:yt1m-test
+
+
+
+docker rmi $(docker images -f dangling=true -q)
