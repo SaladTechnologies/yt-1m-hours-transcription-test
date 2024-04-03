@@ -1,3 +1,7 @@
 type,channel_id,channel_title,video_number,duration,filename,cloudflare_url
 named,UCf-COwmdNelXvbj-KaMCuLw,Carnegie Mellon University,434,149.39,Carnegie Mellon University_434_149.39.csv,
 Economics,UCZ4AMrDcNrfy3X6nsU8-rPg,Economics Explained,141,37.55,Economics Explained_141_37.55.csv,
+named,UCFe-pfe0a9bDvWy74Jd7vFg,Massachusetts Institute of Technology (MIT),1475,152.38,Massachusetts Institute of Technology (MIT)_1475_152.38.csv,
+International Relations,UCL_A4jkwvKuMyToAPy3FQKQ,Council on Foreign Relations,4551,4034.25,Council on Foreign Relations_4551_4034.25.csv,
+US Law,UCg2hOhwtHaLnk6CvMzNtIrA,USLawEssentials,223,12.23,USLawEssentials_223_12.23.csv,
+Law,UCpa-Zb0ZcQjTCPP1Dx_1M8Q,LegalEagle,434,137.37,LegalEagle_434_137.37.csv,

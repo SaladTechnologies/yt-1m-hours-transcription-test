@@ -533,8 +533,8 @@ def reporter(reporting_queue):
         del result["clip_number"]
         del result["clip_id"]
 
-        if Is_Debug == True:
-            print(result["text"])
+        #if Is_Debug == True:
+        #    print(result["text"])
 
         cloudflare_url = asset_upload("R0", s3, prefix, result["asset"], result["text"])
         result["transcript"] = cloudflare_url 

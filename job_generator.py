@@ -10,11 +10,14 @@ import multiprocessing
 g_API_KEY = os.getenv("GCP_API_KEY")
 
 temp_cache = os.getenv("TEMP_CACHE", "./temp_files")
+temp_cache_dir = os.path.abspath(temp_cache)
+os.makedirs(temp_cache_dir, exist_ok=True)
+
 
 # Manually add the channel title and its ID
 named_channels = [
       ["Carnegie Mellon University","UCf-COwmdNelXvbj-KaMCuLw"],
-      #["Massachusetts Institute of Technology (MIT)","UCFe-pfe0a9bDvWy74Jd7vFg"],
+      ["Massachusetts Institute of Technology (MIT)","UCFe-pfe0a9bDvWy74Jd7vFg"],
       # .....
       # .....
 ]
@@ -265,7 +268,7 @@ def Generate_From_Search():
     for topic in topics:
         noChan = 0                                            
         channels = get_channels_from_search(topic[0],g_API_KEY) # 200 channels, could be []
-        for c in channels: 
+        for c in channels[0:1]: #channels: 
             if not Is_Existed(c[1]):
                 print()
                 print("---------------------------> topic: {}, No: {}, ".format(topic[0],noChan),end="")
